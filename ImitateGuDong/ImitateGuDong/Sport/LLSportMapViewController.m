@@ -25,29 +25,16 @@
     LLCircleAnimator *_circleAnimator;
 }
 
-//- (instancetype)initWithCoder:(NSCoder *)aDecoder{
-//    self = [super initWithCoder:aDecoder];
-//    if (self) {
-//        self.modalTransitionStyle = UIModalPresentationCustom;
-//        
-//        _circleAnimator = [LLCircleAnimator new];
-//        self.transitioningDelegate = _circleAnimator;
-//    }
-//    return self;
-//}
-- (instancetype)initWithCoder:(NSCoder *)coder {
-    self = [super initWithCoder:coder];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // 1. 展现样式设置为自定义
         self.modalPresentationStyle = UIModalPresentationCustom;
         
-        // 2. 设置转场代理
-        _circleAnimator = [[LLCircleAnimator alloc] init];
+        _circleAnimator = [LLCircleAnimator new];
         self.transitioningDelegate = _circleAnimator;
     }
     return self;
 }
-
 
 - (void)awakeFromNib{
     [super awakeFromNib];
@@ -79,7 +66,9 @@
         _hasSetStartLocation = YES;
         // 实例化大头针
         MAPointAnnotation *annotation = [MAPointAnnotation new];
-        annotation.coordinate = userLocation.location.coordinate;
+        
+        annotation.coordinate = _sportTracking.sportStartLocation.coordinate;
+        
         [mapView addAnnotation:annotation];
         
     }
@@ -87,7 +76,9 @@
     // 建立结构体数组
     [mapView addOverlay:[_sportTracking appendLocation:userLocation.location]];
 
+//    [self ];
 }
+
 
 // 单击地图 返回经纬度
 - (void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
