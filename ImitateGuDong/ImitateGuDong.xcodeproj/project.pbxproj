@@ -22,6 +22,8 @@
 		32E749CD1DBB9AB30085A09B /* LLSportSporting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E749CC1DBB9AB30085A09B /* LLSportSporting.storyboard */; };
 		32E749FB1DBE47F40085A09B /* LLCircleAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E749FA1DBE47F40085A09B /* LLCircleAnimator.m */; };
 		32E74A011DBE65960085A09B /* DINCond-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32E74A001DBE65960085A09B /* DINCond-Bold.otf */; };
+		32E74A041DBF96610085A09B /* LLSportMapModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E74A031DBF96610085A09B /* LLSportMapModeViewController.m */; };
+		32E74A071DBFBD800085A09B /* LLSportGPSSignalButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E74A061DBFBD800085A09B /* LLSportGPSSignalButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,10 @@
 		32E749F91DBE47F40085A09B /* LLCircleAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCircleAnimator.h; sourceTree = "<group>"; };
 		32E749FA1DBE47F40085A09B /* LLCircleAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCircleAnimator.m; sourceTree = "<group>"; };
 		32E74A001DBE65960085A09B /* DINCond-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-Bold.otf"; sourceTree = "<group>"; };
+		32E74A021DBF96610085A09B /* LLSportMapModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LLSportMapModeViewController.h; path = ImitateGuDong/Sport/LLSportMapModeViewController.h; sourceTree = SOURCE_ROOT; };
+		32E74A031DBF96610085A09B /* LLSportMapModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LLSportMapModeViewController.m; path = ImitateGuDong/Sport/LLSportMapModeViewController.m; sourceTree = SOURCE_ROOT; };
+		32E74A051DBFBD800085A09B /* LLSportGPSSignalButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSportGPSSignalButton.h; sourceTree = "<group>"; };
+		32E74A061DBFBD800085A09B /* LLSportGPSSignalButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSportGPSSignalButton.m; sourceTree = "<group>"; };
 		557AE84B48B17A70BE3ACACA /* libPods-ImitateGuDong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImitateGuDong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C14B297E637BCFDF44503541 /* Pods-ImitateGuDong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImitateGuDong.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImitateGuDong/Pods-ImitateGuDong.release.xcconfig"; sourceTree = "<group>"; };
 		F4E855CF0F8D0BFA44088FFE /* Pods-ImitateGuDong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImitateGuDong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImitateGuDong/Pods-ImitateGuDong.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +134,8 @@
 				32E749961DBA47730085A09B /* LLSportMainViewController.m */,
 				32E749981DBA48810085A09B /* LLSportingViewController.h */,
 				32E749991DBA48810085A09B /* LLSportingViewController.m */,
+				32E74A021DBF96610085A09B /* LLSportMapModeViewController.h */,
+				32E74A031DBF96610085A09B /* LLSportMapModeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -149,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				32E749CC1DBB9AB30085A09B /* LLSportSporting.storyboard */,
+				32E74A051DBFBD800085A09B /* LLSportGPSSignalButton.h */,
+				32E74A061DBFBD800085A09B /* LLSportGPSSignalButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -333,8 +343,10 @@
 				32E7497D1DBA3BBB0085A09B /* AppDelegate.m in Sources */,
 				32E749971DBA47730085A09B /* LLSportMainViewController.m in Sources */,
 				32E7499D1DBA48ED0085A09B /* LLSportTracking.m in Sources */,
+				32E74A071DBFBD800085A09B /* LLSportGPSSignalButton.m in Sources */,
 				32E7497A1DBA3BBB0085A09B /* main.m in Sources */,
 				32E7499A1DBA48810085A09B /* LLSportingViewController.m in Sources */,
+				32E74A041DBF96610085A09B /* LLSportMapModeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

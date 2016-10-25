@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,13 +67,27 @@
                                     <action selector="showMapViewController:" destination="G3D-oe-dBt" eventType="touchUpInside" id="FAB-YC-Ih0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddi-uq-m5V" customClass="LLSportGPSSignalButton">
+                                <color key="backgroundColor" white="0.0" alpha="0.2019396551724138" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                <state key="normal" title="  请远离高楼大厦  " image="ic_sport_gps_disconnect"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMapButton" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.42352941179999998" green="0.73725490199999999" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8KJ-Wy-7Au" secondAttribute="trailing" id="B4H-nz-y74"/>
+                            <constraint firstItem="Ddi-uq-m5V" firstAttribute="leading" secondItem="I0K-ag-wlD" secondAttribute="leading" constant="16" id="BU4-5L-XOC"/>
                             <constraint firstItem="tLr-64-qkA" firstAttribute="top" secondItem="8KJ-Wy-7Au" secondAttribute="bottom" id="K6D-Ew-J7Y"/>
                             <constraint firstItem="eUQ-Rl-2gc" firstAttribute="top" secondItem="N0U-4l-olY" secondAttribute="bottom" constant="3" id="RKr-9z-8qj"/>
                             <constraint firstItem="8KJ-Wy-7Au" firstAttribute="leading" secondItem="I0K-ag-wlD" secondAttribute="leading" id="UyS-zn-RsW"/>
+                            <constraint firstItem="Ddi-uq-m5V" firstAttribute="centerY" secondItem="eUQ-Rl-2gc" secondAttribute="centerY" id="eEx-Gq-II4"/>
                             <constraint firstAttribute="trailing" secondItem="eUQ-Rl-2gc" secondAttribute="trailing" constant="11" id="wOF-Bk-HDQ"/>
                         </constraints>
                     </view>
@@ -139,21 +154,119 @@
                                 </constraints>
                                 <blurEffect style="light"/>
                             </visualEffectView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtt-Ff-iR6">
+                                <state key="normal" image="ic_sport_gps_map_mode"/>
+                                <connections>
+                                    <segue destination="BAZ-H5-1QA" kind="popoverPresentation" popoverAnchorView="Dtt-Ff-iR6" id="S7w-Ch-oa0">
+                                        <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TL5-JK-iQp">
+                                <state key="normal" image="ic_sport_gps_map_close"/>
+                                <connections>
+                                    <action selector="closeMapView" destination="lZO-OP-oOS" eventType="touchUpInside" id="Gx9-1N-8Mc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glv-BY-Zd7" customClass="LLSportGPSSignalButton">
+                                <color key="backgroundColor" white="0.0" alpha="0.20193965520000001" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                                <state key="normal" title="  请远离高楼大厦  " image="ic_sport_gps_map_disconnect"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="16"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMapButton" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="h5l-BG-veu" firstAttribute="leading" secondItem="aIJ-wv-dyU" secondAttribute="leading" id="5CP-Ve-irH"/>
+                            <constraint firstItem="glv-BY-Zd7" firstAttribute="leading" secondItem="aIJ-wv-dyU" secondAttribute="leading" constant="16" id="De4-JH-fYB"/>
                             <constraint firstItem="Jud-qV-0MI" firstAttribute="top" secondItem="h5l-BG-veu" secondAttribute="bottom" id="Mil-xL-ScH"/>
+                            <constraint firstItem="glv-BY-Zd7" firstAttribute="top" secondItem="aIJ-wv-dyU" secondAttribute="topMargin" constant="27" id="QWg-a6-oRU"/>
                             <constraint firstAttribute="trailing" secondItem="h5l-BG-veu" secondAttribute="trailing" id="a2x-rl-YOd"/>
+                            <constraint firstItem="Dtt-Ff-iR6" firstAttribute="leading" secondItem="aIJ-wv-dyU" secondAttribute="leading" constant="16" id="io5-K0-MjV"/>
+                            <constraint firstAttribute="trailing" secondItem="TL5-JK-iQp" secondAttribute="trailing" constant="16" id="lcX-Va-d0i"/>
+                            <constraint firstItem="h5l-BG-veu" firstAttribute="top" secondItem="Dtt-Ff-iR6" secondAttribute="bottom" constant="22" id="lqN-Pz-TWz"/>
+                            <constraint firstItem="h5l-BG-veu" firstAttribute="top" secondItem="TL5-JK-iQp" secondAttribute="bottom" constant="22" id="thj-5K-1pk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="distanceLabel" destination="KrK-rn-VNe" id="ben-rF-Mgj"/>
+                        <outlet property="timeLabel" destination="G4s-wk-GPs" id="P5s-Bk-m9m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7IY-Gd-ZrO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1472.8" y="-323.38830584707648"/>
         </scene>
+        <!--Sport Map Mode View Controller-->
+        <scene sceneID="wJ6-nA-0Jc">
+            <objects>
+                <viewController id="BAZ-H5-1QA" customClass="LLSportMapModeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f2I-Jd-TJq"/>
+                        <viewControllerLayoutGuide type="bottom" id="RpQ-tT-Vcl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dpR-bz-mGC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avP-IF-bNv">
+                                <state key="normal" image="ic_sport_gps_map_flatmode"/>
+                                <state key="highlighted" image="ic_sport_gps_map_flatmode_selected"/>
+                                <connections>
+                                    <action selector="selectMapButton:" destination="BAZ-H5-1QA" eventType="touchUpInside" id="0C1-GL-xmP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbi-je-0Hp">
+                                <state key="normal" image="ic_sport_gps_map_realmode"/>
+                                <state key="highlighted" image="ic_sport_gps_map_realmode_selected"/>
+                                <connections>
+                                    <action selector="selectMapButton:" destination="BAZ-H5-1QA" eventType="touchUpInside" id="wHr-0H-az7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygp-Uh-HAv">
+                                <state key="normal" image="ic_sport_gps_map_mixmode"/>
+                                <state key="highlighted" image="ic_sport_gps_map_mixmode_selected"/>
+                                <connections>
+                                    <action selector="selectMapButton:" destination="BAZ-H5-1QA" eventType="touchUpInside" id="9Hc-dD-VVw"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="avP-IF-bNv" firstAttribute="leading" secondItem="dpR-bz-mGC" secondAttribute="leading" constant="16" id="DTY-DG-BVI"/>
+                            <constraint firstItem="rbi-je-0Hp" firstAttribute="centerX" secondItem="dpR-bz-mGC" secondAttribute="centerX" id="Gty-Ht-H9f"/>
+                            <constraint firstItem="rbi-je-0Hp" firstAttribute="top" secondItem="f2I-Jd-TJq" secondAttribute="bottom" constant="16" id="Krh-Wr-VGY"/>
+                            <constraint firstItem="avP-IF-bNv" firstAttribute="top" secondItem="f2I-Jd-TJq" secondAttribute="bottom" constant="16" id="Zdf-gz-a1G"/>
+                            <constraint firstItem="Ygp-Uh-HAv" firstAttribute="top" secondItem="f2I-Jd-TJq" secondAttribute="bottom" constant="16" id="hlR-46-IkD"/>
+                            <constraint firstAttribute="trailing" secondItem="Ygp-Uh-HAv" secondAttribute="trailing" constant="16" id="jpQ-Jr-35a"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outletCollection property="mapButtons" destination="avP-IF-bNv" id="XTu-jH-6Ww"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ocu-EB-3Po" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2217" y="-323"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="ic_sport_gps_disconnect" width="56" height="23"/>
+        <image name="ic_sport_gps_map_close" width="43" height="43"/>
+        <image name="ic_sport_gps_map_disconnect" width="56" height="23"/>
+        <image name="ic_sport_gps_map_flatmode" width="80" height="89"/>
+        <image name="ic_sport_gps_map_flatmode_selected" width="80" height="89"/>
+        <image name="ic_sport_gps_map_mixmode" width="80" height="89"/>
+        <image name="ic_sport_gps_map_mixmode_selected" width="80" height="89"/>
+        <image name="ic_sport_gps_map_mode" width="43" height="43"/>
+        <image name="ic_sport_gps_map_realmode" width="80" height="89"/>
+        <image name="ic_sport_gps_map_realmode_selected" width="80" height="89"/>
         <image name="ic_sport_map" width="30" height="30"/>
     </resources>
 </document>

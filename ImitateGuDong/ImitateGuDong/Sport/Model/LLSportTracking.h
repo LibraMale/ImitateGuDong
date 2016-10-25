@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LLSportTrackingLine.h"
-
+/// GPS 信号变化通知
+extern NSString *const LLSportGPSSignalChangedNotification;
 /// 运动类型枚举
 typedef NS_ENUM(NSUInteger, LLSportType) {
     LLSportTypeRun,
@@ -21,7 +22,13 @@ typedef NS_ENUM(NSUInteger, LLSportState) {
     LLSportStateContinue,
     LLSportStateFinish,
 };
-
+/// GPS信号枚举
+typedef NS_ENUM(NSUInteger, LLSportGPSSignalState) {
+    LLSportGPSSignalStateDisconnect,
+    LLSportGPSSignalStateBad,
+    LLSportGPSSignalStateNormal,
+    LLSportGPSSignalStateGood
+};
 
 /**
  单次运动轨迹追踪模型
@@ -67,6 +74,10 @@ typedef NS_ENUM(NSUInteger, LLSportState) {
  总时长
  */
 @property (nonatomic, readonly) double totalTime;
+/**
+ 总时长 00:00:00 格式的字符串
+ */
+@property (nonatomic, copy) NSString *totalTimeStr;
 /**
  总距离
  */

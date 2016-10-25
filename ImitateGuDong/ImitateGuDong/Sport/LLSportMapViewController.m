@@ -11,10 +11,13 @@
 #import "LLSportTracking.h"
 #import "LLSportPolyLine.h"
 #import "LLCircleAnimator.h"
+#import "LLSportMapModeViewController.h"
 
-@interface LLSportMapViewController () <MAMapViewDelegate>
+@interface LLSportMapViewController () <MAMapViewDelegate, UIPopoverPresentationControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
@@ -44,6 +47,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+}
+- (IBAction)closeMapView {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+#pragma mark - popover
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender{
+    
+    // 判断跳转控制器类型
+    if (![segue.destinationViewController isKindOfClass:[LLSportMapModeViewController class]]) {
+        return;
+    }
+    
+    LLSportMapModeViewController *vc = (LLSportMapModeViewController *)segue.destinationViewController;
+    vc.popoverPresentationController.delegate = self;
+    // 宽度为0 是交给系统自己处理
+    vc.preferredContentSize = CGSizeMake(0, 120);
+    
+    // 设置地图显示模式
+    [vc setDidSelectedMapMode:^(MAMapType type) {
+        _mapView.mapType = type;
+    }];
+    
+    vc.currentType = _mapView.mapType;
+    
+}
+
+#pragma mark - UIPopoverPresentationControllerDelegate
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller{
+    // 不让系统自适应
+    return UIModalPresentationNone;
 }
 #pragma mark - MAMapViewDelegate
 
@@ -76,15 +109,21 @@
     // 建立结构体数组
     [mapView addOverlay:[_sportTracking appendLocation:userLocation.location]];
 
-//    [self ];
+    [self updateUIDisplay];
 }
 
-
-// 单击地图 返回经纬度
-- (void)mapView:(MAMapView *)mapView didSingleTappedAtCoordinate:(CLLocationCoordinate2D)coordinate{
-    [self dismissViewControllerAnimated:YES completion:nil];
-
+/**
+ 数据改变更新 UI
+ */
+- (void)updateUIDisplay{
+    
+    // 距离
+    _distanceLabel.text = [NSString stringWithFormat:@"%.02f",_sportTracking.totalDistance];
+    
+    // 时间
+    _timeLabel.text = _sportTracking.totalTimeStr;
 }
+
 
 //
 - (MAOverlayRenderer *)mapView:(MAMapView *)mapView rendererForOverlay:(id<MAOverlay>)overlay{

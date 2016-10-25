@@ -8,11 +8,16 @@
 
 #import "LLSportTracking.h"
 
+/// GPS 信号变化通知
+NSString *const LLSportGPSSignalChangedNotification = @"LLSportGPSSignalChangedNotification";
+
 @implementation LLSportTracking{
     /// 起始点位置
     CLLocation *_startLocation;
     /// 所有运动模型数组
     NSMutableArray <LLSportTrackingLine *> *_trackingLines;
+    /// gps定位的点
+    CLLocation *_gpsPreLocation;
 }
 
 - (instancetype)initWithType:(LLSportType)type state:(LLSportState)state{
@@ -54,9 +59,65 @@
     }
     return image;
 }
+/**
+ 监测GPS 信号
+
+ @param location 定位location
+
+ @return GPS状态
+ */
+- (LLSportGPSSignalState)gpsSignalWithLocation:(CLLocation *)location{
+    
+    LLSportGPSSignalState state = LLSportGPSSignalStateBad;
+    
+    // 室内运行时 spped -1
+    if (location.speed < 0) {
+        [self postNotifyWithState:state];
+        return state;
+    }
+    // 判断是否有之前的点
+    if (_gpsPreLocation == nil) {
+        _gpsPreLocation = location;
+        [self postNotifyWithState:state];
+        return state;
+    }
+    
+    // 测定两个定位点之间时间差值
+    NSTimeInterval delta = ABS([location.timestamp timeIntervalSinceDate:_gpsPreLocation.timestamp]);
+    // 如果时间差值越大，意味着 GPS 的信号越差！时间差值如果在大概 1s 左右，意味着 GPS 的信号越好
+    // *** 验证结论 - 真机验证结论 越接近 1 信号越好
+    delta = ABS(delta - 1);
+    
+    // 根据时间差值 计算GPS 差值枚举
+    // 一般小于 0.5 就很好了 这只是为了 测试更明显
+    if (delta < 0.01) {
+        state = LLSportGPSSignalStateGood;
+    } else if (delta < 1){
+        state = LLSportGPSSignalStateNormal;
+    }
+    [self postNotifyWithState:state];
+    
+    // 记录之前的点
+    _gpsPreLocation = location;
+    
+    return state;
+}
+/**
+ 发送 GPS 信号强度枚举通知
+
+ @param state GPS 信号强度枚举
+ */
+- (void)postNotifyWithState:(LLSportGPSSignalState)state{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:LLSportGPSSignalChangedNotification object:@(state)];
+}
 
 - (LLSportPolyLine *)appendLocation:(CLLocation *)location{
-    NSLog(@"speed = %f,",location.speed);
+//    NSLog(@"speed = %f,",location.speed);
+    
+    if ([self gpsSignalWithLocation:location] < LLSportGPSSignalStateNormal) {
+        return nil;
+    }
     // 判断速度是否发生变化
     if (location.speed <= 0) {
 
@@ -101,6 +162,12 @@
 
 - (double)totalDistance {
     return [[_trackingLines valueForKeyPath:@"@sum.distance"] doubleValue];
+}
+
+- (NSString *)totalTimeStr{
+    
+    NSInteger totalTime = (NSInteger)self.totalTime;
+    return [NSString stringWithFormat:@"%02zd:%02zd:%02zd",totalTime / 3600,(totalTime % 3600) / 60,totalTime % 60];
 }
 
 @end

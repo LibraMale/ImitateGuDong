@@ -35,7 +35,7 @@
 #pragma mark - UIViewControllerAnimatedTransitioning
 /// 返回动画时间
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext{
-    return 2;
+    return 0.25;
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext{

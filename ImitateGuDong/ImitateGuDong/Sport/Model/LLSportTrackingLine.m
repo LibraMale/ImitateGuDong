@@ -43,7 +43,7 @@
 }
 
 - (NSTimeInterval)time{
-    return [_startLocation.timestamp timeIntervalSinceDate:_endLocation.timestamp];
+    return [_endLocation.timestamp timeIntervalSinceDate:_startLocation.timestamp];
 }
 
 - (double)distance{
