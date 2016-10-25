@@ -14,6 +14,10 @@
  */
 @interface LLSportMapViewController : UIViewController
 
-@property (nonatomic, strong) LLSportTracking *SportTracking;
+@property (nonatomic, strong) LLSportTracking *sportTracking;
+/**
+ 地图视图
+ */
+@property (nonatomic, weak, readonly) MAMapView *mapView;
 
 @end

@@ -22,9 +22,12 @@
     // 根据tag区分运动类型
     LLSportType type = sender.tag;
     
-    LLSportingViewController *vc = [[LLSportingViewController alloc] init];
-    vc.type = type;
+    // 从storyBoard 加载监控控制器
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"LLSportSporting" bundle:nil];
+    LLSportingViewController *vc = sb.instantiateInitialViewController;
     
+    vc.type = type;
+   
     [self presentViewController:vc animated:YES completion:nil];
 }
 

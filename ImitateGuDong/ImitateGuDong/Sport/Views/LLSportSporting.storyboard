@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="G3D-oe-dBt">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="DINCond-Bold.otf">
+            <string>DINCond-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Sporting View Controller-->
+        <scene sceneID="mzW-Gz-Q6f">
+            <objects>
+                <viewController id="G3D-oe-dBt" customClass="LLSportingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N0U-4l-olY"/>
+                        <viewControllerLayoutGuide type="bottom" id="tLr-64-qkA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I0K-ag-wlD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8KJ-Wy-7Au">
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4b-ZE-ENd">
+                                        <state key="normal" title="继续"/>
+                                        <connections>
+                                            <action selector="changeSportState:" destination="G3D-oe-dBt" eventType="touchUpInside" id="d9J-a7-lDD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgf-bC-TW7">
+                                        <state key="normal" title="暂停"/>
+                                        <connections>
+                                            <action selector="changeSportState:" destination="G3D-oe-dBt" eventType="touchUpInside" id="QIM-RW-A1X"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdL-K1-6Gq">
+                                        <state key="normal" title="结束"/>
+                                        <connections>
+                                            <action selector="changeSportState:" destination="G3D-oe-dBt" eventType="touchUpInside" id="qth-y7-hXk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="wgf-bC-TW7" firstAttribute="baseline" secondItem="e4b-ZE-ENd" secondAttribute="baseline" id="Dbv-us-pcV"/>
+                                    <constraint firstItem="NdL-K1-6Gq" firstAttribute="centerX" secondItem="8KJ-Wy-7Au" secondAttribute="centerX" multiplier="1.5" id="OUo-6B-qcW"/>
+                                    <constraint firstAttribute="height" constant="166" id="QYJ-cl-kCN"/>
+                                    <constraint firstItem="wgf-bC-TW7" firstAttribute="centerX" secondItem="8KJ-Wy-7Au" secondAttribute="centerX" multiplier="0.5" id="RD6-De-YvD"/>
+                                    <constraint firstItem="e4b-ZE-ENd" firstAttribute="leading" secondItem="wgf-bC-TW7" secondAttribute="trailing" constant="62" id="b4Z-oE-syT"/>
+                                    <constraint firstItem="wgf-bC-TW7" firstAttribute="centerY" secondItem="8KJ-Wy-7Au" secondAttribute="centerY" id="eFR-uG-jJe"/>
+                                    <constraint firstItem="NdL-K1-6Gq" firstAttribute="centerY" secondItem="8KJ-Wy-7Au" secondAttribute="centerY" id="w1c-uR-hbl"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUQ-Rl-2gc">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1pb-ai-PSc"/>
+                                    <constraint firstAttribute="width" constant="40" id="YcU-x0-M87"/>
+                                </constraints>
+                                <state key="normal" image="ic_sport_map"/>
+                                <connections>
+                                    <action selector="showMapViewController:" destination="G3D-oe-dBt" eventType="touchUpInside" id="FAB-YC-Ih0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.42352941179999998" green="0.73725490199999999" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="8KJ-Wy-7Au" secondAttribute="trailing" id="B4H-nz-y74"/>
+                            <constraint firstItem="tLr-64-qkA" firstAttribute="top" secondItem="8KJ-Wy-7Au" secondAttribute="bottom" id="K6D-Ew-J7Y"/>
+                            <constraint firstItem="eUQ-Rl-2gc" firstAttribute="top" secondItem="N0U-4l-olY" secondAttribute="bottom" constant="3" id="RKr-9z-8qj"/>
+                            <constraint firstItem="8KJ-Wy-7Au" firstAttribute="leading" secondItem="I0K-ag-wlD" secondAttribute="leading" id="UyS-zn-RsW"/>
+                            <constraint firstAttribute="trailing" secondItem="eUQ-Rl-2gc" secondAttribute="trailing" constant="11" id="wOF-Bk-HDQ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapButton" destination="eUQ-Rl-2gc" id="Mib-L1-wv2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m6N-WB-3P2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="722" y="-323"/>
+        </scene>
+        <!--Sport Map View Controller-->
+        <scene sceneID="edF-jY-3pk">
+            <objects>
+                <viewController storyboardIdentifier="sportMapViewController" id="lZO-OP-oOS" customClass="LLSportMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Qs-dY-l5E"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jud-qV-0MI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aIJ-wv-dyU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5l-BG-veu">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C7d-4g-fB9">
+                                    <frame key="frameInset"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="距离(公里)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TT6-yS-TaE">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrK-rn-VNe">
+                                            <fontDescription key="fontDescription" name="DINCond-Bold" family="DINCond-Bold" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时长" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLP-X5-u57">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4s-wk-GPs">
+                                            <fontDescription key="fontDescription" name="DINCond-Bold" family="DINCond-Bold" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="TT6-yS-TaE" secondAttribute="bottom" constant="18" id="0mP-MG-KzB"/>
+                                        <constraint firstAttribute="bottom" secondItem="bLP-X5-u57" secondAttribute="bottom" constant="18" id="3Hs-hH-ghG"/>
+                                        <constraint firstItem="G4s-wk-GPs" firstAttribute="centerX" secondItem="bLP-X5-u57" secondAttribute="centerX" id="A79-ba-VzY"/>
+                                        <constraint firstItem="bLP-X5-u57" firstAttribute="centerX" secondItem="C7d-4g-fB9" secondAttribute="centerX" multiplier="1.5" id="Cce-7H-CWu"/>
+                                        <constraint firstItem="TT6-yS-TaE" firstAttribute="top" secondItem="KrK-rn-VNe" secondAttribute="bottom" id="HWw-p0-8PC"/>
+                                        <constraint firstItem="bLP-X5-u57" firstAttribute="top" secondItem="G4s-wk-GPs" secondAttribute="bottom" id="Ohc-Q8-LcE"/>
+                                        <constraint firstItem="KrK-rn-VNe" firstAttribute="centerX" secondItem="TT6-yS-TaE" secondAttribute="centerX" id="XC0-Vb-YzQ"/>
+                                        <constraint firstItem="TT6-yS-TaE" firstAttribute="centerX" secondItem="C7d-4g-fB9" secondAttribute="centerX" multiplier="0.5" id="Ymw-bU-Jjn"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="CNx-dh-JaE"/>
+                                    <constraint firstAttribute="height" constant="90" id="WVg-Ws-7gP"/>
+                                </constraints>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h5l-BG-veu" firstAttribute="leading" secondItem="aIJ-wv-dyU" secondAttribute="leading" id="5CP-Ve-irH"/>
+                            <constraint firstItem="Jud-qV-0MI" firstAttribute="top" secondItem="h5l-BG-veu" secondAttribute="bottom" id="Mil-xL-ScH"/>
+                            <constraint firstAttribute="trailing" secondItem="h5l-BG-veu" secondAttribute="trailing" id="a2x-rl-YOd"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7IY-Gd-ZrO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1472.8" y="-323.38830584707648"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_sport_map" width="30" height="30"/>
+    </resources>
+</document>

@@ -7,19 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LLSportTrackingLine.h"
 
+/// 运动类型枚举
 typedef NS_ENUM(NSUInteger, LLSportType) {
     LLSportTypeRun,
     LLSportTypeWalk,
     LLSportTypeBike,
 };
+/// 运动状态枚举
+typedef NS_ENUM(NSUInteger, LLSportState) {
+    LLSportStatePause,
+    LLSportStateContinue,
+    LLSportStateFinish,
+};
+
 
 /**
  单次运动轨迹追踪模型
  */
 @interface LLSportTracking : NSObject
 
-- (instancetype)initWithType:(LLSportType)type;
+- (instancetype)initWithType:(LLSportType)type state:(LLSportState)state;
 
 /**
  运动类型
@@ -27,8 +36,40 @@ typedef NS_ENUM(NSUInteger, LLSportType) {
 @property (nonatomic, assign, readonly) LLSportType sportType;
 
 /**
+ 运动的起点
+ */
+@property (nonatomic, readonly) CLLocation *sportStartLocation;
+
+/**
  运动图像 定位大头针
  */
 @property (nonatomic, strong, readonly) UIImage *sportImage;
+/**
+ 运动状态
+ */
+@property (nonatomic, assign) LLSportState sportState;
+/**
+ 追加用户模型 返回折线模型
+
+ @param location locatio
+
+ */
+- (LLSportPolyLine *)appendLocation:(CLLocation *)location;
+/**
+ 平均速度
+ */
+@property (nonatomic, readonly) double avgSpeed;
+/**
+ 最大速度
+ */
+@property (nonatomic, readonly) double maxSpeed;
+/**
+ 总时长
+ */
+@property (nonatomic, readonly) double totalTime;
+/**
+ 总距离
+ */
+@property (nonatomic, readonly) double totalDistance;
 
 @end

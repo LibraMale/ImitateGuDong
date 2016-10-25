@@ -17,6 +17,11 @@
 		32E749971DBA47730085A09B /* LLSportMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E749961DBA47730085A09B /* LLSportMainViewController.m */; };
 		32E7499A1DBA48810085A09B /* LLSportingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E749991DBA48810085A09B /* LLSportingViewController.m */; };
 		32E7499D1DBA48ED0085A09B /* LLSportTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E7499C1DBA48ED0085A09B /* LLSportTracking.m */; };
+		32E749C71DBB034D0085A09B /* LLSportTrackingLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E749C61DBB034D0085A09B /* LLSportTrackingLine.m */; };
+		32E749CA1DBB126D0085A09B /* LLSportPolyLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E749C91DBB126D0085A09B /* LLSportPolyLine.m */; };
+		32E749CD1DBB9AB30085A09B /* LLSportSporting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E749CC1DBB9AB30085A09B /* LLSportSporting.storyboard */; };
+		32E749FB1DBE47F40085A09B /* LLCircleAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E749FA1DBE47F40085A09B /* LLCircleAnimator.m */; };
+		32E74A011DBE65960085A09B /* DINCond-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 32E74A001DBE65960085A09B /* DINCond-Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,14 @@
 		32E749991DBA48810085A09B /* LLSportingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSportingViewController.m; sourceTree = "<group>"; };
 		32E7499B1DBA48ED0085A09B /* LLSportTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSportTracking.h; sourceTree = "<group>"; };
 		32E7499C1DBA48ED0085A09B /* LLSportTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSportTracking.m; sourceTree = "<group>"; };
+		32E749C51DBB034D0085A09B /* LLSportTrackingLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSportTrackingLine.h; sourceTree = "<group>"; };
+		32E749C61DBB034D0085A09B /* LLSportTrackingLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSportTrackingLine.m; sourceTree = "<group>"; };
+		32E749C81DBB126D0085A09B /* LLSportPolyLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSportPolyLine.h; sourceTree = "<group>"; };
+		32E749C91DBB126D0085A09B /* LLSportPolyLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSportPolyLine.m; sourceTree = "<group>"; };
+		32E749CC1DBB9AB30085A09B /* LLSportSporting.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LLSportSporting.storyboard; sourceTree = "<group>"; };
+		32E749F91DBE47F40085A09B /* LLCircleAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLCircleAnimator.h; sourceTree = "<group>"; };
+		32E749FA1DBE47F40085A09B /* LLCircleAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLCircleAnimator.m; sourceTree = "<group>"; };
+		32E74A001DBE65960085A09B /* DINCond-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINCond-Bold.otf"; sourceTree = "<group>"; };
 		557AE84B48B17A70BE3ACACA /* libPods-ImitateGuDong.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImitateGuDong.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C14B297E637BCFDF44503541 /* Pods-ImitateGuDong.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImitateGuDong.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImitateGuDong/Pods-ImitateGuDong.release.xcconfig"; sourceTree = "<group>"; };
 		F4E855CF0F8D0BFA44088FFE /* Pods-ImitateGuDong.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImitateGuDong.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImitateGuDong/Pods-ImitateGuDong.debug.xcconfig"; sourceTree = "<group>"; };
@@ -74,6 +87,7 @@
 		32E749771DBA3BBB0085A09B /* ImitateGuDong */ = {
 			isa = PBXGroup;
 			children = (
+				32E749F71DBE47F40085A09B /* Tools */,
 				32E7498F1DBA460F0085A09B /* Sport */,
 				32E749781DBA3BBB0085A09B /* Supporting Files */,
 			);
@@ -83,6 +97,7 @@
 		32E749781DBA3BBB0085A09B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				32E749FF1DBE65960085A09B /* Fonts */,
 				32E7497B1DBA3BBB0085A09B /* AppDelegate.h */,
 				32E7497C1DBA3BBB0085A09B /* AppDelegate.m */,
 				32E749811DBA3BBB0085A09B /* Main.storyboard */,
@@ -97,6 +112,7 @@
 		32E7498F1DBA460F0085A09B /* Sport */ = {
 			isa = PBXGroup;
 			children = (
+				32E749CB1DBB9A930085A09B /* Views */,
 				32E749941DBA47310085A09B /* Model */,
 				32E749931DBA47310085A09B /* Controller */,
 			);
@@ -121,8 +137,45 @@
 			children = (
 				32E7499B1DBA48ED0085A09B /* LLSportTracking.h */,
 				32E7499C1DBA48ED0085A09B /* LLSportTracking.m */,
+				32E749C51DBB034D0085A09B /* LLSportTrackingLine.h */,
+				32E749C61DBB034D0085A09B /* LLSportTrackingLine.m */,
+				32E749C81DBB126D0085A09B /* LLSportPolyLine.h */,
+				32E749C91DBB126D0085A09B /* LLSportPolyLine.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		32E749CB1DBB9A930085A09B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				32E749CC1DBB9AB30085A09B /* LLSportSporting.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		32E749F71DBE47F40085A09B /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				32E749F81DBE47F40085A09B /* LLAnimators */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		32E749F81DBE47F40085A09B /* LLAnimators */ = {
+			isa = PBXGroup;
+			children = (
+				32E749F91DBE47F40085A09B /* LLCircleAnimator.h */,
+				32E749FA1DBE47F40085A09B /* LLCircleAnimator.m */,
+			);
+			path = LLAnimators;
+			sourceTree = "<group>";
+		};
+		32E749FF1DBE65960085A09B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				32E74A001DBE65960085A09B /* DINCond-Bold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		5D580AC0B6B0ED476C1014B0 /* Pods */ = {
@@ -213,6 +266,8 @@
 				32E749881DBA3BBB0085A09B /* LaunchScreen.storyboard in Resources */,
 				32E749851DBA3BBB0085A09B /* Assets.xcassets in Resources */,
 				32E749831DBA3BBB0085A09B /* Main.storyboard in Resources */,
+				32E74A011DBE65960085A09B /* DINCond-Bold.otf in Resources */,
+				32E749CD1DBB9AB30085A09B /* LLSportSporting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +326,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32E749FB1DBE47F40085A09B /* LLCircleAnimator.m in Sources */,
+				32E749CA1DBB126D0085A09B /* LLSportPolyLine.m in Sources */,
+				32E749C71DBB034D0085A09B /* LLSportTrackingLine.m in Sources */,
 				32E749921DBA46860085A09B /* LLSportMapViewController.m in Sources */,
 				32E7497D1DBA3BBB0085A09B /* AppDelegate.m in Sources */,
 				32E749971DBA47730085A09B /* LLSportMainViewController.m in Sources */,
@@ -399,6 +457,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7HYS587L42;
 				INFOPLIST_FILE = ImitateGuDong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.libraLiu.ImitateGuDong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -412,6 +471,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7HYS587L42;
 				INFOPLIST_FILE = ImitateGuDong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.libraLiu.ImitateGuDong;
 				PRODUCT_NAME = "$(TARGET_NAME)";
