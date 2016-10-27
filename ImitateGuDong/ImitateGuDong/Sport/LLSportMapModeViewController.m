@@ -18,28 +18,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 设置按钮的初始选中位置
-    for (UIButton *btn  in _mapButtons) {
-        // 判断当前按钮的tag值 是否和地图类型一样
+    // 设置按钮的初始选中状态
+    for (UIButton *btn in _mapButtons) {
+        // 判断按钮的 tag 是否和 当前地图类型一致
         btn.selected = (btn.tag == _currentType);
     }
-    
 }
 
 - (IBAction)selectMapButton:(UIButton *)sender {
-    
+    // 0. 判断按钮的 tag 是否与当前的地图类型一致
     if (sender.tag == _currentType) {
         return;
     }
-    
     _currentType = sender.tag;
-    // 设置地图类型
+    
+    // 1. 设置地图类型
     if (_didSelectedMapMode != nil) {
         _didSelectedMapMode(_currentType);
     }
-    // 设置按钮的选中状态
-    for (UIButton *button in _mapButtons) {
-        button.selected = (button == sender);
+    
+    // 2. 设置按钮的选中状态
+    for (UIButton *btn in _mapButtons) {
+        // 判断和参数按钮是否一致
+        btn.selected = (btn == sender);
+        if (btn.selected) {
+            
+        }
     }
 }
 

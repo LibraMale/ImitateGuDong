@@ -53,24 +53,29 @@
 }
 #pragma mark - popover
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(nullable id)sender{
-    
-    // 判断跳转控制器类型
+    // 1. 判断跳转控制器的类型
     if (![segue.destinationViewController isKindOfClass:[LLSportMapModeViewController class]]) {
         return;
     }
     
     LLSportMapModeViewController *vc = (LLSportMapModeViewController *)segue.destinationViewController;
+    
+    // 2. 验证 popover 和传统模态之间的区别，如果要自定义 popover 的样式，就可以通过 popoverPresentationController
+    NSLog(@"%@", vc.popoverPresentationController);
+    
+    // 3. 设置代理
     vc.popoverPresentationController.delegate = self;
-    // 宽度为0 是交给系统自己处理
+    
+    // 4. 设置喜欢的大小，如果 width 设置为 0，宽度交给系统设置！
     vc.preferredContentSize = CGSizeMake(0, 120);
     
-    // 设置地图显示模式
+    // 5. 设置地图视图的显示模式
     [vc setDidSelectedMapMode:^(MAMapType type) {
-        _mapView.mapType = type;
+        self.mapView.mapType = type;
     }];
     
+    // 6. 设置 vc 的当前显示模式
     vc.currentType = _mapView.mapType;
-    
 }
 
 #pragma mark - UIPopoverPresentationControllerDelegate

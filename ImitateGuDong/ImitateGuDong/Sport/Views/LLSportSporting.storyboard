@@ -215,40 +215,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avP-IF-bNv">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aj5-3K-Yhe">
                                 <state key="normal" image="ic_sport_gps_map_flatmode"/>
-                                <state key="highlighted" image="ic_sport_gps_map_flatmode_selected"/>
+                                <state key="selected" image="ic_sport_gps_map_flatmode_selected"/>
                                 <connections>
-                                    <action selector="selectMapButton:" destination="BAZ-H5-1QA" eventType="touchUpInside" id="0C1-GL-xmP"/>
+                                    <action selector="selectMapButton:" destination="BAZ-H5-1QA" eventType="touchUpInside" id="T3e-SD-1FI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbi-je-0Hp">
-                                <state key="normal" image="ic_sport_gps_map_realmode"/>
-                                <state key="highlighted" image="ic_sport_gps_map_realmode_selected"/>
-                                <connections>
-                                    <action selector="selectMapButton:" destination="BAZ-H5-1QA" eventType="touchUpInside" id="wHr-0H-az7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygp-Uh-HAv">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QWB-hw-Kdt">
                                 <state key="normal" image="ic_sport_gps_map_mixmode"/>
-                                <state key="highlighted" image="ic_sport_gps_map_mixmode_selected"/>
+                                <state key="selected" image="ic_sport_gps_map_mixmode_selected"/>
                                 <connections>
-                                    <action selector="selectMapButton:" destination="BAZ-H5-1QA" eventType="touchUpInside" id="9Hc-dD-VVw"/>
+                                    <action selector="selectMapButton:" destination="BAZ-H5-1QA" eventType="touchUpInside" id="Aen-WI-nRz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LbI-m7-HCP">
+                                <state key="normal" image="ic_sport_gps_map_realmode"/>
+                                <state key="selected" image="ic_sport_gps_map_realmode_selected"/>
+                                <connections>
+                                    <action selector="selectMapButton:" destination="BAZ-H5-1QA" eventType="touchUpInside" id="r7o-5L-ceg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="avP-IF-bNv" firstAttribute="leading" secondItem="dpR-bz-mGC" secondAttribute="leading" constant="16" id="DTY-DG-BVI"/>
-                            <constraint firstItem="rbi-je-0Hp" firstAttribute="centerX" secondItem="dpR-bz-mGC" secondAttribute="centerX" id="Gty-Ht-H9f"/>
-                            <constraint firstItem="rbi-je-0Hp" firstAttribute="top" secondItem="f2I-Jd-TJq" secondAttribute="bottom" constant="16" id="Krh-Wr-VGY"/>
-                            <constraint firstItem="avP-IF-bNv" firstAttribute="top" secondItem="f2I-Jd-TJq" secondAttribute="bottom" constant="16" id="Zdf-gz-a1G"/>
-                            <constraint firstItem="Ygp-Uh-HAv" firstAttribute="top" secondItem="f2I-Jd-TJq" secondAttribute="bottom" constant="16" id="hlR-46-IkD"/>
-                            <constraint firstAttribute="trailing" secondItem="Ygp-Uh-HAv" secondAttribute="trailing" constant="16" id="jpQ-Jr-35a"/>
+                            <constraint firstItem="aj5-3K-Yhe" firstAttribute="leading" secondItem="dpR-bz-mGC" secondAttribute="leading" constant="16" id="7ih-r9-LuW"/>
+                            <constraint firstAttribute="trailing" secondItem="QWB-hw-Kdt" secondAttribute="trailing" constant="16" id="8i0-9i-1rx"/>
+                            <constraint firstItem="LbI-m7-HCP" firstAttribute="centerX" secondItem="dpR-bz-mGC" secondAttribute="centerX" id="PGs-RS-2h7"/>
+                            <constraint firstItem="aj5-3K-Yhe" firstAttribute="top" secondItem="f2I-Jd-TJq" secondAttribute="bottom" constant="16" id="e30-HE-2Tv"/>
+                            <constraint firstItem="QWB-hw-Kdt" firstAttribute="top" secondItem="f2I-Jd-TJq" secondAttribute="bottom" constant="16" id="iPB-vl-xFA"/>
+                            <constraint firstItem="LbI-m7-HCP" firstAttribute="top" secondItem="f2I-Jd-TJq" secondAttribute="bottom" constant="16" id="v3C-m9-7Uy"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outletCollection property="mapButtons" destination="avP-IF-bNv" id="XTu-jH-6Ww"/>
+                        <outletCollection property="mapButtons" destination="aj5-3K-Yhe" id="XU4-tx-K4R"/>
+                        <outletCollection property="mapButtons" destination="LbI-m7-HCP" id="29j-tw-nIP"/>
+                        <outletCollection property="mapButtons" destination="QWB-hw-Kdt" id="0X5-Gx-hLe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocu-EB-3Po" userLabel="First Responder" sceneMemberID="firstResponder"/>
