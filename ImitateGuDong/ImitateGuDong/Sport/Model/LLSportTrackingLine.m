@@ -32,7 +32,7 @@
     CGFloat red = factor * self.speed / 255.0;
     UIColor *color = [UIColor colorWithRed:red green:1 blue:0 alpha:1];
     // 测试两点间的运动数据
-    NSLog(@"速度 %f 时间 %f 距离 %f", self.speed, self.time, self.distance);
+//    NSLog(@"速度 %f 时间 %f 距离 %f", self.speed, self.time, self.distance);
 
     // 创建折线对象
     return [LLSportPolyLine polylineWithCoordinates:coords count:2 color:color];

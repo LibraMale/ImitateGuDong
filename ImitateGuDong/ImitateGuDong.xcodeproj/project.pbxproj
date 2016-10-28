@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0CA273CC4DFA934EFEFD55EE /* libPods-ImitateGuDong.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 557AE84B48B17A70BE3ACACA /* libPods-ImitateGuDong.a */; };
+		320939421DC22D35005E2F09 /* UIColor+LLAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 320939411DC22D35005E2F09 /* UIColor+LLAddition.m */; };
+		320939461DC23BF2005E2F09 /* LLSportSpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 320939451DC23BF2005E2F09 /* LLSportSpeaker.m */; };
+		320939481DC258DE005E2F09 /* voice.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 320939471DC258DE005E2F09 /* voice.bundle */; };
 		32E7497A1DBA3BBB0085A09B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E749791DBA3BBB0085A09B /* main.m */; };
 		32E7497D1DBA3BBB0085A09B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E7497C1DBA3BBB0085A09B /* AppDelegate.m */; };
 		32E749831DBA3BBB0085A09B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E749811DBA3BBB0085A09B /* Main.storyboard */; };
@@ -27,6 +30,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		320939401DC22D35005E2F09 /* UIColor+LLAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LLAddition.h"; sourceTree = "<group>"; };
+		320939411DC22D35005E2F09 /* UIColor+LLAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LLAddition.m"; sourceTree = "<group>"; };
+		320939441DC23BF2005E2F09 /* LLSportSpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSportSpeaker.h; sourceTree = "<group>"; };
+		320939451DC23BF2005E2F09 /* LLSportSpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSportSpeaker.m; sourceTree = "<group>"; };
+		320939471DC258DE005E2F09 /* voice.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = voice.bundle; path = Fonts/voice.bundle; sourceTree = "<group>"; };
 		32E749751DBA3BBB0085A09B /* ImitateGuDong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImitateGuDong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E749791DBA3BBB0085A09B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32E7497B1DBA3BBB0085A09B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -72,6 +80,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3209393F1DC22D35005E2F09 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				320939401DC22D35005E2F09 /* UIColor+LLAddition.h */,
+				320939411DC22D35005E2F09 /* UIColor+LLAddition.m */,
+			);
+			path = Additions;
+			sourceTree = "<group>";
+		};
+		320939431DC23BD9005E2F09 /* speaker */ = {
+			isa = PBXGroup;
+			children = (
+				320939441DC23BF2005E2F09 /* LLSportSpeaker.h */,
+				320939451DC23BF2005E2F09 /* LLSportSpeaker.m */,
+			);
+			path = speaker;
+			sourceTree = "<group>";
+		};
 		32E7496C1DBA3BBB0085A09B = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +129,7 @@
 		32E749781DBA3BBB0085A09B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				320939471DC258DE005E2F09 /* voice.bundle */,
 				32E749FF1DBE65960085A09B /* Fonts */,
 				32E7497B1DBA3BBB0085A09B /* AppDelegate.h */,
 				32E7497C1DBA3BBB0085A09B /* AppDelegate.m */,
@@ -143,6 +170,7 @@
 		32E749941DBA47310085A09B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				320939431DC23BD9005E2F09 /* speaker */,
 				32E7499B1DBA48ED0085A09B /* LLSportTracking.h */,
 				32E7499C1DBA48ED0085A09B /* LLSportTracking.m */,
 				32E749C51DBB034D0085A09B /* LLSportTrackingLine.h */,
@@ -166,6 +194,7 @@
 		32E749F71DBE47F40085A09B /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				3209393F1DC22D35005E2F09 /* Additions */,
 				32E749F81DBE47F40085A09B /* LLAnimators */,
 			);
 			path = Tools;
@@ -275,6 +304,7 @@
 			files = (
 				32E749881DBA3BBB0085A09B /* LaunchScreen.storyboard in Resources */,
 				32E749851DBA3BBB0085A09B /* Assets.xcassets in Resources */,
+				320939481DC258DE005E2F09 /* voice.bundle in Resources */,
 				32E749831DBA3BBB0085A09B /* Main.storyboard in Resources */,
 				32E74A011DBE65960085A09B /* DINCond-Bold.otf in Resources */,
 				32E749CD1DBB9AB30085A09B /* LLSportSporting.storyboard in Resources */,
@@ -338,12 +368,14 @@
 			files = (
 				32E749FB1DBE47F40085A09B /* LLCircleAnimator.m in Sources */,
 				32E749CA1DBB126D0085A09B /* LLSportPolyLine.m in Sources */,
+				320939461DC23BF2005E2F09 /* LLSportSpeaker.m in Sources */,
 				32E749C71DBB034D0085A09B /* LLSportTrackingLine.m in Sources */,
 				32E749921DBA46860085A09B /* LLSportMapViewController.m in Sources */,
 				32E7497D1DBA3BBB0085A09B /* AppDelegate.m in Sources */,
 				32E749971DBA47730085A09B /* LLSportMainViewController.m in Sources */,
 				32E7499D1DBA48ED0085A09B /* LLSportTracking.m in Sources */,
 				32E74A071DBFBD800085A09B /* LLSportGPSSignalButton.m in Sources */,
+				320939421DC22D35005E2F09 /* UIColor+LLAddition.m in Sources */,
 				32E7497A1DBA3BBB0085A09B /* main.m in Sources */,
 				32E7499A1DBA48810085A09B /* LLSportingViewController.m in Sources */,
 				32E74A041DBF96610085A09B /* LLSportMapModeViewController.m in Sources */,

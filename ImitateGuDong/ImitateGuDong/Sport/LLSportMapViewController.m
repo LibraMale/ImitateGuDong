@@ -61,7 +61,7 @@
     LLSportMapModeViewController *vc = (LLSportMapModeViewController *)segue.destinationViewController;
     
     // 2. 验证 popover 和传统模态之间的区别，如果要自定义 popover 的样式，就可以通过 popoverPresentationController
-    NSLog(@"%@", vc.popoverPresentationController);
+//    NSLog(@"%@", vc.popoverPresentationController);
     
     // 3. 设置代理
     vc.popoverPresentationController.delegate = self;
@@ -98,7 +98,7 @@
     }
     // 将用户位置设置在地图视图的中心点
     [mapView setCenterCoordinate:userLocation.coordinate animated:YES];
-    NSLog(@"%@ ", userLocation.location);
+//    NSLog(@"%@ ", userLocation.location);
     // 判断起始位置是否存在
     if (!_hasSetStartLocation && _sportTracking.sportStartLocation != nil) {
         _hasSetStartLocation = YES;
@@ -115,6 +115,8 @@
     [mapView addOverlay:[_sportTracking appendLocation:userLocation.location]];
 
     [self updateUIDisplay];
+    
+    [_delegate sportMapViewControllerDidChangedData:self];
 }
 
 /**

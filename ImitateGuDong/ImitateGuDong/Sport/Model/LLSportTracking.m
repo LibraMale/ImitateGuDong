@@ -112,23 +112,50 @@ NSString *const LLSportGPSSignalChangedNotification = @"LLSportGPSSignalChangedN
     [[NSNotificationCenter defaultCenter] postNotificationName:LLSportGPSSignalChangedNotification object:@(state)];
 }
 
+/**
+ 根据location 修改 用户的运动状态
+
+ @param location location
+ */
+- (void)checkSportStateWithLocation:(CLLocation *)location{
+    
+    if (self.sportStartLocation == nil) {
+        return;
+    }
+    
+    if (location.speed == 0 && _sportState == LLSportStateContinue) {
+        _sportState = LLSportStatePause;
+    }
+    
+    if (location.speed > 0 && _sportState == LLSportStatePause) {
+        _sportState = LLSportStateContinue;
+    }
+    
+}
 - (LLSportPolyLine *)appendLocation:(CLLocation *)location{
 //    NSLog(@"speed = %f,",location.speed);
     
     if ([self gpsSignalWithLocation:location] < LLSportGPSSignalStateNormal) {
         return nil;
     }
-    // 判断速度是否发生变化
-    if (location.speed <= 0) {
-
+    
+    // 检查用户的运动状态
+    [self checkSportStateWithLocation:location];
+    
+    if (_sportState != LLSportStateContinue) {
         return nil;
     }
-    // 判断定位的时间差值，暂时定义一个时间差值因子 - 性能优化（避免室内出现杂线）
-    CGFloat factor = 2;
-    if ([[NSDate date] timeIntervalSinceDate:location.timestamp] > factor) {
-        // 如果超过时间差值，就认为定位的精度不够
-        return nil;
-    }
+//    // 判断速度是否发生变化
+//    if (location.speed <= 0) {
+//
+//        return nil;
+//    }
+//    // 判断定位的时间差值，暂时定义一个时间差值因子 - 性能优化（避免室内出现杂线）
+//    CGFloat factor = 2;
+//    if ([[NSDate date] timeIntervalSinceDate:location.timestamp] > factor) {
+//        // 如果超过时间差值，就认为定位的精度不够
+//        return nil;
+//    }
 
     // 判断是否存在起点 暂停时避免出现直线
     if (_startLocation == nil) {
@@ -145,7 +172,7 @@ NSString *const LLSportGPSSignalChangedNotification = @"LLSportGPSSignalChangedN
     
     // 将当前位置设置为下一次的起始点
     _startLocation = location;
-    NSLog(@"%@",_startLocation);
+//    NSLog(@"%@",_startLocation);
     return trackingLine.polyline;
 }
 - (double)avgSpeed {
