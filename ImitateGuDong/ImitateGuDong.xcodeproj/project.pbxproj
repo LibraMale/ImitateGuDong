@@ -11,6 +11,10 @@
 		320939421DC22D35005E2F09 /* UIColor+LLAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 320939411DC22D35005E2F09 /* UIColor+LLAddition.m */; };
 		320939461DC23BF2005E2F09 /* LLSportSpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 320939451DC23BF2005E2F09 /* LLSportSpeaker.m */; };
 		320939481DC258DE005E2F09 /* voice.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 320939471DC258DE005E2F09 /* voice.bundle */; };
+		328D99E41DC3805E00199864 /* NSObject+LLNumberConvert.m in Sources */ = {isa = PBXBuildFile; fileRef = 328D99E31DC3805E00199864 /* NSObject+LLNumberConvert.m */; };
+		328D99EA1DC5021100199864 /* LLSportCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 328D99E81DC5021100199864 /* LLSportCameraViewController.m */; };
+		328D99EB1DC5021100199864 /* LLSportCameraViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 328D99E91DC5021100199864 /* LLSportCameraViewController.xib */; };
+		328D99EE1DC502E500199864 /* LLSportCameraMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 328D99ED1DC502E500199864 /* LLSportCameraMaskView.m */; };
 		32E7497A1DBA3BBB0085A09B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E749791DBA3BBB0085A09B /* main.m */; };
 		32E7497D1DBA3BBB0085A09B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32E7497C1DBA3BBB0085A09B /* AppDelegate.m */; };
 		32E749831DBA3BBB0085A09B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E749811DBA3BBB0085A09B /* Main.storyboard */; };
@@ -35,6 +39,13 @@
 		320939441DC23BF2005E2F09 /* LLSportSpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSportSpeaker.h; sourceTree = "<group>"; };
 		320939451DC23BF2005E2F09 /* LLSportSpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSportSpeaker.m; sourceTree = "<group>"; };
 		320939471DC258DE005E2F09 /* voice.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = voice.bundle; path = Fonts/voice.bundle; sourceTree = "<group>"; };
+		328D99E21DC3805E00199864 /* NSObject+LLNumberConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LLNumberConvert.h"; sourceTree = "<group>"; };
+		328D99E31DC3805E00199864 /* NSObject+LLNumberConvert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LLNumberConvert.m"; sourceTree = "<group>"; };
+		328D99E71DC5021100199864 /* LLSportCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSportCameraViewController.h; sourceTree = "<group>"; };
+		328D99E81DC5021100199864 /* LLSportCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSportCameraViewController.m; sourceTree = "<group>"; };
+		328D99E91DC5021100199864 /* LLSportCameraViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LLSportCameraViewController.xib; sourceTree = "<group>"; };
+		328D99EC1DC502E500199864 /* LLSportCameraMaskView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LLSportCameraMaskView.h; sourceTree = "<group>"; };
+		328D99ED1DC502E500199864 /* LLSportCameraMaskView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LLSportCameraMaskView.m; sourceTree = "<group>"; };
 		32E749751DBA3BBB0085A09B /* ImitateGuDong.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImitateGuDong.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32E749791DBA3BBB0085A09B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32E7497B1DBA3BBB0085A09B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,6 +109,18 @@
 			path = speaker;
 			sourceTree = "<group>";
 		};
+		328D99D91DC32A2E00199864 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				328D99E71DC5021100199864 /* LLSportCameraViewController.h */,
+				328D99E81DC5021100199864 /* LLSportCameraViewController.m */,
+				328D99E91DC5021100199864 /* LLSportCameraViewController.xib */,
+				328D99EC1DC502E500199864 /* LLSportCameraMaskView.h */,
+				328D99ED1DC502E500199864 /* LLSportCameraMaskView.m */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		32E7496C1DBA3BBB0085A09B = {
 			isa = PBXGroup;
 			children = (
@@ -145,6 +168,7 @@
 		32E7498F1DBA460F0085A09B /* Sport */ = {
 			isa = PBXGroup;
 			children = (
+				328D99D91DC32A2E00199864 /* Camera */,
 				32E749CB1DBB9A930085A09B /* Views */,
 				32E749941DBA47310085A09B /* Model */,
 				32E749931DBA47310085A09B /* Controller */,
@@ -196,6 +220,8 @@
 			children = (
 				3209393F1DC22D35005E2F09 /* Additions */,
 				32E749F81DBE47F40085A09B /* LLAnimators */,
+				328D99E21DC3805E00199864 /* NSObject+LLNumberConvert.h */,
+				328D99E31DC3805E00199864 /* NSObject+LLNumberConvert.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -305,6 +331,7 @@
 				32E749881DBA3BBB0085A09B /* LaunchScreen.storyboard in Resources */,
 				32E749851DBA3BBB0085A09B /* Assets.xcassets in Resources */,
 				320939481DC258DE005E2F09 /* voice.bundle in Resources */,
+				328D99EB1DC5021100199864 /* LLSportCameraViewController.xib in Resources */,
 				32E749831DBA3BBB0085A09B /* Main.storyboard in Resources */,
 				32E74A011DBE65960085A09B /* DINCond-Bold.otf in Resources */,
 				32E749CD1DBB9AB30085A09B /* LLSportSporting.storyboard in Resources */,
@@ -368,12 +395,15 @@
 			files = (
 				32E749FB1DBE47F40085A09B /* LLCircleAnimator.m in Sources */,
 				32E749CA1DBB126D0085A09B /* LLSportPolyLine.m in Sources */,
+				328D99EE1DC502E500199864 /* LLSportCameraMaskView.m in Sources */,
 				320939461DC23BF2005E2F09 /* LLSportSpeaker.m in Sources */,
 				32E749C71DBB034D0085A09B /* LLSportTrackingLine.m in Sources */,
+				328D99EA1DC5021100199864 /* LLSportCameraViewController.m in Sources */,
 				32E749921DBA46860085A09B /* LLSportMapViewController.m in Sources */,
 				32E7497D1DBA3BBB0085A09B /* AppDelegate.m in Sources */,
 				32E749971DBA47730085A09B /* LLSportMainViewController.m in Sources */,
 				32E7499D1DBA48ED0085A09B /* LLSportTracking.m in Sources */,
+				328D99E41DC3805E00199864 /* NSObject+LLNumberConvert.m in Sources */,
 				32E74A071DBFBD800085A09B /* LLSportGPSSignalButton.m in Sources */,
 				320939421DC22D35005E2F09 /* UIColor+LLAddition.m in Sources */,
 				32E7497A1DBA3BBB0085A09B /* main.m in Sources */,

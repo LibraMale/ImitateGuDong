@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="DINCond-Bold.otf">
+            <string>DINCond-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LLSportCameraViewController">
+            <connections>
+                <outlet property="distanceLabel" destination="clP-vz-u9W" id="c1l-uW-yv3"/>
+                <outlet property="previewView" destination="S5V-De-IiJ" id="kyd-7T-1ad"/>
+                <outlet property="view" destination="M5i-G2-fU2" id="YRz-wb-OdB"/>
+                <outlet property="waterprintImageView" destination="JcM-xv-MzS" id="gea-SQ-ZhX"/>
+                <outletCollection property="maskViewConstraints" destination="LOM-Dm-VzH" id="4o9-12-Y1j"/>
+                <outletCollection property="maskViewConstraints" destination="8SI-eA-Myg" id="lPq-iS-xWj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="M5i-G2-fU2">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jN-x6-IfP" userLabel="快门按钮">
+                    <fontDescription key="fontDescription" type="system" pointSize="48"/>
+                    <state key="normal" title="✓" backgroundImage="ic_waterprint_shutter"/>
+                    <connections>
+                        <action selector="capture" destination="-1" eventType="touchUpInside" id="QRF-Et-mNs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URx-aj-xWy" userLabel="关闭按钮">
+                    <state key="normal" image="ic_waterprint_close"/>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbR-rn-yPb" userLabel="分享按钮">
+                    <state key="normal" image="ic_waterprint_share"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fsy-k1-WJW" userLabel="镜头旋转按钮">
+                    <state key="normal" image="ic_waterprint_revolve"/>
+                    <connections>
+                        <action selector="switchCamera" destination="-1" eventType="touchUpInside" id="gEV-sM-Pzb"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5V-De-IiJ" userLabel="预览视图">
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_waterprint_action_oriented" translatesAutoresizingMaskIntoConstraints="NO" id="JcM-xv-MzS"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.00 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clP-vz-u9W">
+                            <fontDescription key="fontDescription" name="DINCond-Bold" family="DINCond-Bold" pointSize="28"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E2X-RF-hed" userLabel="左侧快门视图" customClass="LLSportCameraMaskView">
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_shutter_center_left" translatesAutoresizingMaskIntoConstraints="NO" id="irz-I1-B4S"/>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="irz-I1-B4S" firstAttribute="centerY" secondItem="E2X-RF-hed" secondAttribute="centerY" id="FxA-kw-bX3"/>
+                                <constraint firstItem="irz-I1-B4S" firstAttribute="centerX" secondItem="E2X-RF-hed" secondAttribute="trailing" id="lKm-NM-vkK"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="imageView" destination="irz-I1-B4S" id="Y4i-cc-cSl"/>
+                            </connections>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vkl-51-28E" userLabel="右侧快门视图" customClass="LLSportCameraMaskView">
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_shutter_center_right" translatesAutoresizingMaskIntoConstraints="NO" id="ycz-61-HFd"/>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="ycz-61-HFd" firstAttribute="centerY" secondItem="Vkl-51-28E" secondAttribute="centerY" id="ccd-Fk-pJz"/>
+                                <constraint firstItem="ycz-61-HFd" firstAttribute="centerX" secondItem="Vkl-51-28E" secondAttribute="leading" id="gb1-5f-5b5"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="imageView" destination="ycz-61-HFd" id="luL-PC-3xM"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Vkl-51-28E" firstAttribute="leading" secondItem="S5V-De-IiJ" secondAttribute="trailing" constant="52" id="8SI-eA-Myg"/>
+                        <constraint firstAttribute="trailing" secondItem="Vkl-51-28E" secondAttribute="trailing" priority="999" id="CVM-Y8-uEj"/>
+                        <constraint firstAttribute="bottom" secondItem="E2X-RF-hed" secondAttribute="bottom" id="Ecs-3X-dE6"/>
+                        <constraint firstAttribute="bottom" secondItem="clP-vz-u9W" secondAttribute="bottom" constant="32" id="H9u-UW-56d"/>
+                        <constraint firstItem="E2X-RF-hed" firstAttribute="top" secondItem="S5V-De-IiJ" secondAttribute="top" id="L6i-JB-LsP"/>
+                        <constraint firstAttribute="leading" secondItem="E2X-RF-hed" secondAttribute="trailing" constant="52" id="LOM-Dm-VzH"/>
+                        <constraint firstItem="E2X-RF-hed" firstAttribute="leading" secondItem="S5V-De-IiJ" secondAttribute="leading" priority="999" id="P9V-eA-Tiz"/>
+                        <constraint firstItem="clP-vz-u9W" firstAttribute="centerX" secondItem="S5V-De-IiJ" secondAttribute="centerX" id="TmZ-xX-gaz"/>
+                        <constraint firstItem="Vkl-51-28E" firstAttribute="width" secondItem="S5V-De-IiJ" secondAttribute="width" multiplier="0.5" id="YCm-zo-P12"/>
+                        <constraint firstAttribute="bottom" secondItem="Vkl-51-28E" secondAttribute="bottom" id="Yfd-SD-9Oj"/>
+                        <constraint firstItem="E2X-RF-hed" firstAttribute="width" secondItem="S5V-De-IiJ" secondAttribute="width" multiplier="0.5" id="fd7-Tg-qAO"/>
+                        <constraint firstItem="Vkl-51-28E" firstAttribute="top" secondItem="S5V-De-IiJ" secondAttribute="top" id="ktn-n4-63o"/>
+                        <constraint firstItem="JcM-xv-MzS" firstAttribute="centerX" secondItem="clP-vz-u9W" secondAttribute="centerX" id="mz7-xv-kQu"/>
+                        <constraint firstItem="clP-vz-u9W" firstAttribute="top" secondItem="JcM-xv-MzS" secondAttribute="bottom" constant="16" id="run-w9-3EU"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="S5V-De-IiJ" firstAttribute="leading" secondItem="M5i-G2-fU2" secondAttribute="leading" id="0Gr-td-J7m"/>
+                <constraint firstItem="2jN-x6-IfP" firstAttribute="centerX" secondItem="M5i-G2-fU2" secondAttribute="centerX" id="8Ry-0y-J3S"/>
+                <constraint firstAttribute="trailing" secondItem="dbR-rn-yPb" secondAttribute="trailing" constant="16" id="IcB-Ne-39S"/>
+                <constraint firstItem="Fsy-k1-WJW" firstAttribute="centerY" secondItem="dbR-rn-yPb" secondAttribute="centerY" id="Jh5-aN-frc"/>
+                <constraint firstItem="URx-aj-xWy" firstAttribute="leading" secondItem="M5i-G2-fU2" secondAttribute="leading" constant="16" id="M7N-35-Jux"/>
+                <constraint firstAttribute="bottom" secondItem="2jN-x6-IfP" secondAttribute="bottom" constant="32" id="MDG-vL-djT"/>
+                <constraint firstItem="Fsy-k1-WJW" firstAttribute="centerX" secondItem="dbR-rn-yPb" secondAttribute="centerX" id="QAa-Af-oas"/>
+                <constraint firstItem="URx-aj-xWy" firstAttribute="centerY" secondItem="2jN-x6-IfP" secondAttribute="centerY" id="TXr-Tk-VhZ"/>
+                <constraint firstItem="dbR-rn-yPb" firstAttribute="centerY" secondItem="2jN-x6-IfP" secondAttribute="centerY" id="Ujh-0Y-7r0"/>
+                <constraint firstAttribute="trailing" secondItem="S5V-De-IiJ" secondAttribute="trailing" id="a7e-t2-eO4"/>
+                <constraint firstItem="Fsy-k1-WJW" firstAttribute="width" secondItem="dbR-rn-yPb" secondAttribute="width" id="dY2-9o-S0u"/>
+                <constraint firstItem="S5V-De-IiJ" firstAttribute="top" secondItem="M5i-G2-fU2" secondAttribute="top" id="kNH-F9-KpD"/>
+                <constraint firstItem="Fsy-k1-WJW" firstAttribute="height" secondItem="dbR-rn-yPb" secondAttribute="height" id="pes-qS-syT"/>
+                <constraint firstItem="2jN-x6-IfP" firstAttribute="top" secondItem="S5V-De-IiJ" secondAttribute="bottom" constant="32" id="wLi-zq-XSp"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="ic_shutter_center_left" width="104" height="104"/>
+        <image name="ic_shutter_center_right" width="104" height="104"/>
+        <image name="ic_waterprint_action_oriented" width="211" height="43"/>
+        <image name="ic_waterprint_close" width="32" height="32"/>
+        <image name="ic_waterprint_revolve" width="32" height="32"/>
+        <image name="ic_waterprint_share" width="32" height="32"/>
+        <image name="ic_waterprint_shutter" width="66" height="66"/>
+    </resources>
+</document>

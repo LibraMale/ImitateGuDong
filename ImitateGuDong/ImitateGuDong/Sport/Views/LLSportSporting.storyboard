@@ -118,6 +118,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w42-dc-vo6">
                                         <state key="normal" image="ic_sport_camera"/>
+                                        <connections>
+                                            <action selector="showCameraController:" destination="G3D-oe-dBt" eventType="touchUpInside" id="Evf-DD-eIE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5H-Cm-T1y">
                                         <state key="normal" image="ic_sport_lock_1"/>

@@ -8,6 +8,7 @@
 
 #import "LLSportingViewController.h"
 #import "LLSportMapViewController.h"
+#import "LLSportCameraViewController.h"
 #import "UIColor+LLAddition.h"
 #import "LLSportSpeaker.h"
 
@@ -83,6 +84,12 @@
 - (IBAction)showMapViewController:(id)sender {
     
     [self presentViewController:_mapVc animated:YES completion:nil];
+}
+- (IBAction)showCameraController:(id)sender {
+    
+    LLSportCameraViewController *vc = [[LLSportCameraViewController alloc] init];
+    
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (IBAction)changeSportState:(UIButton *)sender {
