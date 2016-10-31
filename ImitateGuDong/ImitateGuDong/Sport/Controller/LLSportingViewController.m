@@ -11,8 +11,9 @@
 #import "LLSportCameraViewController.h"
 #import "UIColor+LLAddition.h"
 #import "LLSportSpeaker.h"
+#import <MediaPlayer/MediaPlayer.h>
 
-@interface LLSportingViewController () <LLSportMapViewControllerDelegate>
+@interface LLSportingViewController () <LLSportMapViewControllerDelegate , MPMediaPickerControllerDelegate>
 
 @property (nonatomic, strong) LLSportMapViewController *mapVc;
 @property (weak, nonatomic) IBOutlet UIButton *mapButton;
@@ -80,11 +81,46 @@
     _mapVc.mapView.compassOrigin = CGPointMake(x, y);
 
 }
+#pragma mark - MPMediaPickerControllerDelegate
+/// 用户选中歌曲的代理方法
+- (void)mediaPicker:(MPMediaPickerController *)mediaPicker didPickMediaItems:(MPMediaItemCollection *)mediaItemCollection{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // 播放音乐
+    MPMusicPlayerController *player = [MPMusicPlayerController applicationMusicPlayer];
+    
+    [player setQueueWithItemCollection:mediaItemCollection];
+    
+    [player play];
+}
 
+- (void)mediaPickerDidCancel:(MPMediaPickerController *)mediaPicker{
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+/**
+ 显示媒体库
+ */
+- (IBAction)showMediaLibrary {
+    
+    // 实例化媒体控制器
+    MPMediaPickerController *vc = [[MPMediaPickerController alloc] initWithMediaTypes:MPMediaTypeMusic];
+    
+    vc.delegate = self;
+    
+    [self presentViewController:vc animated:YES completion:nil];
+}
+/**
+ 显示地图
+ */
 - (IBAction)showMapViewController:(id)sender {
     
     [self presentViewController:_mapVc animated:YES completion:nil];
 }
+/**
+ 显示照相机
+ */
 - (IBAction)showCameraController:(id)sender {
     
     LLSportCameraViewController *vc = [[LLSportCameraViewController alloc] init];

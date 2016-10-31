@@ -4,16 +4,32 @@ PODS:
   - AMapFoundation (1.3.0)
   - AMapSearch (4.2.0):
     - AMapFoundation (~> 1.0)
+  - MOBFoundation (2.0.11)
+  - ShareSDK3 (3.4.2):
+    - ShareSDK3/ShareSDK (= 3.4.2)
+  - ShareSDK3/ShareSDK (3.4.2)
+  - ShareSDK3/ShareSDKPlatforms/QQ (3.4.2)
+  - ShareSDK3/ShareSDKPlatforms/SinaWeibo (3.4.2)
+  - ShareSDK3/ShareSDKPlatforms/WeChat (3.4.2)
+  - ShareSDK3/ShareSDKUI (3.4.2)
 
 DEPENDENCIES:
   - AMap3DMap (~> 4.1.0)
   - AMapSearch
+  - MOBFoundation
+  - ShareSDK3
+  - ShareSDK3/ShareSDKPlatforms/QQ
+  - ShareSDK3/ShareSDKPlatforms/SinaWeibo
+  - ShareSDK3/ShareSDKPlatforms/WeChat
+  - ShareSDK3/ShareSDKUI
 
 SPEC CHECKSUMS:
   AMap3DMap: 048e1ef05ce87a486d6bf4f09a4e2285356b3a16
   AMapFoundation: 95799945466ccabfe1d3d5d9c1d524501c327b90
   AMapSearch: 788020fca7ed18819e8bc2bfca716a6775a05ada
+  MOBFoundation: e213065e65eebd8146ab29d10a8445dc8f385091
+  ShareSDK3: 2fa975dd22937fc7de3f6b5d0c41a18ba0dd1661
 
-PODFILE CHECKSUM: 0766d7c3f51aa2b60b141dfaea25400902aa7b63
+PODFILE CHECKSUM: af454c217904fac6f244e56c192ae12017cda1df
 
 COCOAPODS: 1.0.1

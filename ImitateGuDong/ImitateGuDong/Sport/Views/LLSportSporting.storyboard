@@ -115,6 +115,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jth-tH-065">
                                         <state key="normal" image="ic_sport_settings"/>
+                                        <connections>
+                                            <action selector="showMediaLibrary" destination="G3D-oe-dBt" eventType="touchUpInside" id="PrS-VX-I24"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w42-dc-vo6">
                                         <state key="normal" image="ic_sport_camera"/>

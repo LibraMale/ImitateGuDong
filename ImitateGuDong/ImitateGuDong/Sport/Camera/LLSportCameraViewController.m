@@ -8,6 +8,12 @@
 
 #import "LLSportCameraViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import <ShareSDK/ShareSDK.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+
+
+/// 拍摄快门动画时长
+#define LLCaptureAnimationDuration 1.0
 
 @interface LLSportCameraViewController ()
 /**
@@ -27,6 +33,18 @@
  快门约束数组
  */
 @property (strong, nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *maskViewConstraints;
+/**
+ 保存完成提示标签
+ */
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+/**
+ 快门按钮
+ */
+@property (weak, nonatomic) IBOutlet UIButton *captureButton;
+/**
+ 旋转相机和分享按钮
+ */
+@property (weak, nonatomic) IBOutlet UIButton *rotateSharedButton;
 
 @end
 
@@ -39,6 +57,8 @@
     AVCaptureStillImageOutput *_imageOutput;
     /// 取景框 - 预览图层
     AVCaptureVideoPreviewLayer *_previewLayer;
+    /// 拍摄完成的图片
+    UIImage *_capturedPicture;
 }
 
 - (void)viewDidLoad {
@@ -56,6 +76,13 @@
  切换摄像头
  */
 - (IBAction)switchCamera {
+    
+    // 判断是否在 拍摄 分享
+    if (!_captureSession.isRunning) {
+        [self sharedPicture];
+        
+        return;
+    }
     // AVCaptureConnection 表示图像和摄像头的连接
     // 0. 具体的设备 - 摄像头／麦克风(模拟器没有摄像头，应该使用真机测试)
     AVCaptureDevice *device = [self captureDevice];
@@ -84,6 +111,14 @@
  拍照
  */
 - (IBAction)capture {
+    
+    // 判断是否在拍摄
+    if (!_captureSession.isRunning) {
+        // 直接反转按钮 不执行动画
+        [self rotateButtonsAnimation];
+        
+        return;
+    }
     // 关闭快门
     [self maskViewAminWithClose:YES];
     
@@ -91,9 +126,19 @@
     [self capturePicture];
     
     // 打开快门
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(LLCaptureAnimationDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self maskViewAminWithClose:NO];
     });
+}
+/**
+ 关闭照相机
+
+ @param sender sender
+ */
+- (IBAction)closeCemaraClick:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
 }
 /**
  快门动画
@@ -108,14 +153,96 @@
     } else {
         // 启用选中的约束
         [NSLayoutConstraint activateConstraints:_maskViewConstraints];
+        
+        [self rotateButtonsAnimation];
     }
     
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:LLCaptureAnimationDuration animations:^{
         [self.view layoutIfNeeded];
     }];
     
 }
 
+- (void)rotateButtonsAnimation{
+    
+    // 确定按钮的标题
+    BOOL emptyTitle = (_captureButton.currentTitle == nil);
+    NSString *title = emptyTitle ? @"✓" : nil;
+    
+    // 设置按钮标题
+    [_captureButton setTitle:title forState:UIControlStateNormal];
+    
+    // 反转按钮的动画
+    UIViewAnimationOptions options = emptyTitle ? UIViewAnimationOptionTransitionFlipFromRight : UIViewAnimationOptionTransitionFlipFromLeft;
+    
+    [UIView transitionWithView:_captureButton duration:LLCaptureAnimationDuration options:options animations:nil completion:^(BOOL finished) {
+        if (title == nil) {
+            [self startCapture];
+        }
+    }];
+    
+    // 确定反转按钮 和分享按钮
+    NSString *imageName = emptyTitle ? @"ic_waterprint_share" : @"ic_waterprint_revolve";
+    
+    [_rotateSharedButton setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    
+    // 旋转按钮动画
+    [UIView transitionWithView:_rotateSharedButton duration:LLCaptureAnimationDuration options:options animations:nil completion:nil];
+    
+}
+
+/**
+ 分享照片
+ */
+- (void)sharedPicture{
+    
+    if (_capturedPicture == nil) {
+        return;
+    }
+    // 1、创建分享参数 - 要分享图像的数组
+    NSArray *imageArray = @[_capturedPicture];
+    
+    NSMutableDictionary *shareParams = [NSMutableDictionary dictionary];
+    [shareParams SSDKSetupShareParamsByText:@"分享内容"
+                                     images:imageArray
+                                        url:nil
+                                      title:@"分享标题"
+                                       type:SSDKContentTypeAuto];
+    
+    // 2. 分享（可以弹出我们的分享菜单和编辑界面）
+    [ShareSDK showShareActionSheet:nil
+                             items:nil
+                       shareParams:shareParams
+               onShareStateChanged:^(SSDKResponseState state, SSDKPlatformType platformType, NSDictionary *userData, SSDKContentEntity *contentEntity, NSError *error, BOOL end) {
+                   
+                   switch (state) {
+                       case SSDKResponseStateSuccess:
+                       {
+                           UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"分享成功"
+                                                                               message:nil
+                                                                              delegate:nil
+                                                                     cancelButtonTitle:@"确定"
+                                                                     otherButtonTitles:nil];
+                           [alertView show];
+                           break;
+                       }
+                       case SSDKResponseStateFail:
+                       {
+                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享失败"
+                                                                           message:[NSString stringWithFormat:@"%@",error]
+                                                                          delegate:nil
+                                                                 cancelButtonTitle:@"OK"
+                                                                 otherButtonTitles:nil, nil];
+                           [alert show];
+                           break;
+                       }
+                       default:
+                           break;
+                   }
+               }
+     ];
+
+}
 #pragma mark - 相机相关方法
 
 /**
@@ -203,7 +330,23 @@
     
     NSString *msg = (error == nil) ? @"照片保存成功" : @"照片保存失败";
     
-    NSLog(@"%@", msg);
+    _tipLabel.text = msg;
+    
+    // 静止画面
+    [self stopCapture];
+    
+    double duration = 1.0;
+    
+    [UIView animateWithDuration:duration delay:LLCaptureAnimationDuration options:0 animations:^{
+        self.tipLabel.alpha = 1;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:duration animations:^{
+            self.tipLabel.alpha = 0;
+        }];
+    }];
+    
+    // 记录成员变量
+    _capturedPicture = image;
 }
 
 

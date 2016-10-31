@@ -27,7 +27,7 @@
 - (instancetype)init{
     self = [super init];
     if (self) {
-        _unitDistance = 0.1;
+        _unitDistance = 1;
         
         _lastReportDistance = 0;
         
